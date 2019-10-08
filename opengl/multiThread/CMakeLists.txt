@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.14)
 project(multiThread)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -15,4 +15,4 @@ if(NOT OPENGL_FOUND)
 endif(NOT OPENGL_FOUND)
 
 add_executable(multiThread main.cpp)
-target_link_libraries(multiThread GLEW ${OPENGL_LIBRARIES} X11 GLX GL pthread)
+target_link_libraries(multiThread GLEW ${OPENGL_LIBRARIES} X11 GL pthread)

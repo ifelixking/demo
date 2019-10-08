@@ -101,9 +101,9 @@ GLXContext  g_context;
 Window g_window;
 bool g_exitFlag = false;
 
-const int DIM = 200;
+const int DIM = 500;
 const float SIZE = 1.0f/DIM*2;
-const int MAX_LIFE_COUNT = 50;
+const int MAX_LIFE_COUNT = 2;
 
 class Renderable{
 public:
