@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="a.out.js"></script>
+	<script>
+
+		// 对 c 函数的调用必须是 Module 初始化后
+		Module["onRuntimeInitialized"] = function(){
+			init();
+		}
+
+		function init(){
+			// 方法1： 先包装，后使用
+			var cfunc1 = Module.cwrap('cfunc1', 'number', ['number', 'number'])
+			var result1 = cfunc1(1, 2)
+			console.log(result1)
+
+			// 方法2： 直接调用
+			var result2 = Module.ccall('cfunc2', 'string', ['string'], ['limeng']);
+			console.log(result2)
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
