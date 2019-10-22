@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src='lib.js'></script>
+</head>
+<body>
+	<button onclick="render()">render one frame</button>
+	<canvas id="canvas1" style="width:320px;height:240px"></canvas>
+	<script>
+		Module["onRuntimeInitialized"] = function(){
+			
+			// 字符串参数不能直接传参， 需要转换
+			var jsString = '#canvas1';
+			var lengthBytes = lengthBytesUTF8(jsString)+1;
+			var stringOnWasmHeap = _malloc(lengthBytes);
+			stringToUTF8(jsString, stringOnWasmHeap, lengthBytes);
+
+			Module._init(stringOnWasmHeap);
+		}
+		function render(){
+			Module._render()
+		}
+	</script>
+</body>
+</html>
