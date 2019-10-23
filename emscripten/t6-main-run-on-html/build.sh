@@ -1,0 +1,3 @@
+#!/bin/bash
+
+emcc main.cpp -s DISABLE_DEPRECATED_FIND_EVENT_TARGET_BEHAVIOR=1
