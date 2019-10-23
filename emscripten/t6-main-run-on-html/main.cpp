@@ -11,6 +11,7 @@ int main()
 	emscripten_webgl_init_context_attributes(&attribs);
 	attribs.alpha = false;
 	attribs.enableExtensionsByDefault = false;
+	attribs.preserveDrawingBuffer = true;		// 告诉 浏览器 swapbuffers 时 是 "拷贝" 而不是 "交换"
 
 	EMSCRIPTEN_WEBGL_CONTEXT_HANDLE context = emscripten_webgl_create_context("#canvas1", &attribs);
 	emscripten_webgl_make_context_current(context);

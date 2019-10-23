@@ -1,3 +1,4 @@
 *.out.js
 *.wasm
 *.js.map
+tmp
